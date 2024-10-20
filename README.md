@@ -1,54 +1,33 @@
-# Bottle Inspection System
+# Hệ thống kiểm tra chai
 
-The project was created to allow the user to inspect the bottle by analyzing the photo. The program works only for specific bottles filled with liquid of a specific color and placed on a specific background. The photos used in the project were taken by me.
+Dự án này được tạo ra để cho phép người dùng kiểm tra chai bằng cách phân tích ảnh. Chương trình chỉ hoạt động cho các loại chai cụ thể, được chứa đầy chất lỏng có màu sắc cụ thể và đặt trên nền đặc biệt. Các bức ảnh được sử dụng trong dự án là do tôi chụp.
 
-Used libraries: OpenCV, NumPy, PyQt5
+Các thư viện được sử dụng: OpenCV, NumPy, PyQt5
 
-## Program main stages:
+## Các giai đoạn chính của chương trình:
 
-1. Checking the bottle's brand.
-2. Checking if there is a label on the bottle and adding bounding boxes around the label and cap (if they are present).
-3. Checking if there is liquid inside the bottle and adding a line highlighting its level.
+1. Kiểm tra nhãn hiệu của chai.
+2. Kiểm tra xem chai có nhãn hay không và thêm các khung bao quanh nhãn và nắp (nếu có).
+3. Kiểm tra xem có chất lỏng bên trong chai không và thêm một đường nổi bật mức chất lỏng.
 
-Each main stage of the program consists of smaller steps. The steps for each stage are listed below.
+Mỗi giai đoạn chính của chương trình bao gồm các bước nhỏ hơn. Các bước cho từng giai đoạn được liệt kê dưới đây.
 
-### Checking for the bottle's brand:
+### Kiểm tra nhãn hiệu của chai:
 
-1. Getting an image of the bottle's shape.
-2. Cropping the image and scaling it to set the bottle's width to a fixed value.
-3. Comparing with example shapes.
+1. Nhận hình ảnh của hình dạng chai.
+2. Cắt và điều chỉnh hình ảnh để đặt chiều rộng của chai ở giá trị cố định.
+3. So sánh với các hình dạng mẫu.
 
-### Checking if there is a label on the bottle and adding bounding boxes around the label and cap (if they are present):
+### Kiểm tra xem có nhãn trên chai hay không và thêm khung bao quanh nhãn và nắp (nếu có):
 
-1. Finding key points on the bottle photo and images with label examples.
-2. Comparing the found key points and determining if there is a label that fits (or fits the most).
-3. Checking the label and cap placement on the photo.
-4. Adding bounding boxes to the photo.
+1. Tìm các điểm chính trên ảnh chai và các hình ảnh với nhãn mẫu.
+2. So sánh các điểm chính tìm được và xác định xem có nhãn phù hợp (hoặc phù hợp nhất) hay không.
+3. Kiểm tra vị trí của nhãn và nắp trên ảnh.
+4. Thêm khung bao vào ảnh.
 
-### Checking if there is liquid inside the bottle and adding a line highlighting its level:
+### Kiểm tra xem có chất lỏng bên trong chai không và thêm một đường nổi bật mức chất lỏng:
 
-1. Changing the photo from BGR to HSV and adding masks.
-2. Checking if there is liquid by checking for the number of pixels representing one of two possible colors of the fluid and comparing this number to the number of pixels that represent the bottle shape.
-3. Checking the liquid level by using a lateral histogram and an image with pixels representing the liquid color colored white on a black background.
-4. Adding a red line highlighting the liquid level to the photo.
-
-# Demo:
-## GUI:
-![image](https://github.com/Qubav/Bottle_Inspection_System/assets/124883831/57697f7d-41ad-49e1-9a90-f460779e2539)
-
-## View with original bottle photo:
-![image](https://github.com/Qubav/Bottle_Inspection_System/assets/124883831/9d35fee3-a167-4d3d-b11f-027420042326)
-
-## Veiw with processed photo:
-![image](https://github.com/Qubav/Bottle_Inspection_System/assets/124883831/78b5ce1e-5d42-448b-bee6-0c87fb179c57)
-
-## Different bottle inspection examples:
-![image](https://github.com/Qubav/Bottle_Inspection_System/assets/124883831/cdee85a8-7489-45c8-bded-36d202c84185)
-
-![image](https://github.com/Qubav/Bottle_Inspection_System/assets/124883831/cb483ede-ed5b-41f3-8317-5022409166dd)
-
-![image](https://github.com/Qubav/Bottle_Inspection_System/assets/124883831/03f8b754-52df-46ef-9e5b-f747ea005133)
-
-![image](https://github.com/Qubav/Bottle_Inspection_System/assets/124883831/554f325e-a4c5-4d33-8df7-c38ee23014d2)
-
-![image](https://github.com/Qubav/Bottle_Inspection_System/assets/124883831/5052caf9-1480-4ce3-93e3-c8652b0b3845)
+1. Chuyển ảnh từ chế độ BGR sang HSV và thêm các mặt nạ.
+2. Kiểm tra xem có chất lỏng hay không bằng cách kiểm tra số lượng điểm ảnh đại diện cho một trong hai màu của chất lỏng và so sánh số lượng này với số lượng điểm ảnh đại diện cho hình dạng chai.
+3. Kiểm tra mức chất lỏng bằng cách sử dụng biểu đồ ngang và một hình ảnh với các điểm ảnh đại diện cho màu chất lỏng được tô trắng trên nền đen.
+4. Thêm một đường màu đỏ để làm nổi bật mức chất lỏng trên ảnh.
